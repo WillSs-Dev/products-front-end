@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => (
+const ProductsList = () => (
   <>
     <div>
       <h1>Product List</h1>
@@ -19,4 +19,4 @@ const Home = () => (
   </>
 );
 
-export default Home;
+export default ProductsList;

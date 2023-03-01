@@ -31,18 +31,21 @@ const AttributesForm = () => {
       <div>
         {productType === 'DVD' && (
           <>
+            <span>Please, provide size</span>
             <label htmlFor="size">Size (MB)</label>
             <input type="number" id="#size" name="size" />
           </>
         )}
         {productType === 'Book' && (
           <>
+            <span>Please, provide weight</span>
             <label htmlFor="weight">Weight (KG)</label>
             <input type="number" id="#weight" name="weight" />
           </>
         )}
         {productType === 'Furniture' && (
           <>
+            <span>Please, provide dimensions:</span>
             <label htmlFor="height">Height (CM)</label>
             <input type="number" id="#height" name="height" />
             <label htmlFor="width">Width (CM)</label>

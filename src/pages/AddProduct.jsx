@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AttributesForm from '../components/AttributesForm';
 
 const AddProducts = () => (
@@ -7,7 +8,7 @@ const AddProducts = () => (
       <h1>Product Add</h1>
       <div>
         <button>Save</button>
-        <button>Cancel</button>
+        <button><Link to="/">Cancel</Link></button>
       </div>
     </div>
     <hr />
