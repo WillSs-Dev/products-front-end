@@ -1,4 +1,4 @@
-const fetchProducts = () => {
+const fetchProducts = async () => {
   return fetch('https://php-products-api.up.railway.app/')
   .then(response => response.json())
   .then(data => {
