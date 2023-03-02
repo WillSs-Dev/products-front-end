@@ -13,7 +13,7 @@ const validateForm = (formState) => {
     error = 'Please, submit required data';
     return { error };
   }
-
+  
   if (!Number(price)) {
     error = 'Price must be a number';
     return { error };
@@ -29,13 +29,14 @@ const validateForm = (formState) => {
       return { error };
     }
   };
-
-  if (!attr_value) {
+  
+  if (!attr_value && category !== 'furniture') {
     error = 'Please, submit required data';
+    // console.log('here');
     return { error };
   }
 
-  if (!Number(attr_value)) {
+  if (!Number(attr_value) && category !== 'furniture') {
     error = 'Attribute value must be a number';
     return { error };
   }
