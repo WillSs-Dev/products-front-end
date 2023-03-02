@@ -20,7 +20,7 @@ const ProductsList = () => {
         <h1>Product List</h1>
         <div>
           <button>
-            <Link to="/addproduct">ADD</Link>
+            <Link to="/add-product">ADD</Link>
           </button>
           <button id='#delete-product-btn'>MASS DELETE</button>
         </div>
