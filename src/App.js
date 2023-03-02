@@ -9,7 +9,7 @@ const BrowserRouter = createBrowserRouter([
     element: <ProductsList />,
   },
   {
-    path: '/addproduct',
+    path: '/add-product',
     element: <AddProduct />,
   },
 ]);
