@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { addProduct } from '../api';
 import AttributesForm from '../components/AttributesForm';
 import genReqBody from '../utils/genReqBody';
 import { initialFormState, validateForm } from '../utils/handleForm';
@@ -7,11 +8,13 @@ import { initialFormState, validateForm } from '../utils/handleForm';
 const AddProducts = () => {
   const [formData, setFormData] = useState(initialFormState);
 
+  const navigate = useNavigate();
+
   const handleFormChange = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const { error } = validateForm(formData);
 
     if (error) {
@@ -19,7 +22,14 @@ const AddProducts = () => {
     }
     
     const reqBody = genReqBody(formData);
-    console.log(reqBody);
+    
+    const { message } = await addProduct(reqBody);
+    
+    if (message !== 'Product created') {
+      return alert(message); 
+    }
+
+    navigate('/');
   }; 
 
   return (
