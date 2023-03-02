@@ -1,33 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AttributesForm from '../components/AttributesForm';
+import { initialFormState, validateForm } from '../utils/handleForm';
 
-const AddProducts = () => (
-  <>
-    <div>
-      <h1>Product Add</h1>
-      <div>
-        <button>Save</button>
-        <button><Link to="/">Cancel</Link></button>
-      </div>
-    </div>
-    <hr />
-    <form id='#product_form'>
-      <div>
-        <label htmlFor='sku'>SKU</label>
-        <input type='text' id='#sku' name='sku' />
-        
-        <label htmlFor='name'>Name</label>
-        <input type='text' id='#name' name='name' />
+const AddProducts = () => {
+  const [formData, setFormData] = useState(initialFormState);
 
-        <label htmlFor='price'>Price ($)</label>
-        <input type='number' id='#price' name='price' />
+  const handleFormChange = ({ target: { name, value } }) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    const { error } = validateForm(formData);
+
+    if (error) {
+      return alert(error);
+    }
+    
+    console.log('Form is valid');
+  }; 
+
+  return (
+    <>
+      <div>
+        <h1>Product Add</h1>
+        <div>
+          <button onClick={handleSubmit}>Save</button>
+          <button>
+            <Link to="/">Cancel</Link>
+          </button>
+        </div>
       </div>
-      <AttributesForm />
-    </form>
-    <hr />
-    <span>Scandiweb Test assignment</span>
-  </>
-);
+      <hr />
+      <form id="#product_form">
+        <div>
+          <label htmlFor="sku">SKU</label>
+          <input id="#sku" name="sku" onChange={handleFormChange} />
+
+          <label htmlFor="name">Name</label>
+          <input
+            id="#name"
+            name="name"
+            onChange={handleFormChange}
+          />
+
+          <label htmlFor="price">Price ($)</label>
+          <input
+            id="#price"
+            name="price"
+            onChange={handleFormChange}
+          />
+        </div>
+        <AttributesForm handleFormChange={handleFormChange} />
+      </form>
+      <hr />
+      <span>Scandiweb Test assignment</span>
+    </>
+  );
+};
 
 export default AddProducts;

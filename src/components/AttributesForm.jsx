@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-const AttributesForm = () => {
-  const [productType, setProductType] = useState('DVD');
+const AttributesForm = ({ handleFormChange }) => {
+  const [productType, setProductType] = useState('dvd');
 
-  const handleChange = ({ target: { value } }) => {
+  const handleTypeChange = ({ target: { name, value } }) => {
     setProductType(value);
+    handleFormChange({ target: { name, value } });
   };
 
   return (
@@ -13,45 +14,57 @@ const AttributesForm = () => {
         <label htmlFor="type">Type Switcher</label>
         <select
           id="#productType"
-          name="type"
-          onChange={handleChange}
+          name="category"
+          onChange={handleTypeChange}
           value={productType}
         >
-          <option value="DVD" id="#DVD">
+          <option value="dvd" id="#DVD">
             DVD
           </option>
-          <option value="Book" id="#Book">
+          <option value="book" id="#Book">
             Book
           </option>
-          <option value="Furniture" id="#Furniture">
+          <option value="furniture" id="#Furniture">
             Furniture
           </option>
         </select>
       </div>
       <div>
-        {productType === 'DVD' && (
+        {productType === 'dvd' && (
           <>
             <span>Please, provide size</span>
             <label htmlFor="size">Size (MB)</label>
-            <input type="number" id="#size" name="size" />
+            <input id="#size" name="attr_value" onChange={handleFormChange} />
           </>
         )}
-        {productType === 'Book' && (
+        {productType === 'book' && (
           <>
             <span>Please, provide weight</span>
             <label htmlFor="weight">Weight (KG)</label>
-            <input type="number" id="#weight" name="weight" />
+            <input id="#weight" name="attr_value" onChange={handleFormChange} />
           </>
         )}
-        {productType === 'Furniture' && (
+        {productType === 'furniture' && (
           <>
             <span>Please, provide dimensions:</span>
             <label htmlFor="height">Height (CM)</label>
-            <input type="number" id="#height" name="height" />
+            <input
+              id="#height"
+              name="height"
+              onChange={handleFormChange}
+            />
             <label htmlFor="width">Width (CM)</label>
-            <input type="number" id="#width" name="width" />
+            <input
+              id="#width"
+              name="width"
+              onChange={handleFormChange}
+            />
             <label htmlFor="length">Length (CM)</label>
-            <input type="number" id="#length" name="length" />
+            <input
+              id="#length"
+              name="length"
+              onChange={handleFormChange}
+            />
           </>
         )}
       </div>
