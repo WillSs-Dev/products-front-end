@@ -47,19 +47,19 @@ const AttributesForm = ({ handleFormChange }) => {
         {productType === 'furniture' && (
           <>
             <span>Please, provide dimensions:</span>
-            <label htmlFor="height">Height (CM)</label>
+            <label htmlFor="height">Height (M)</label>
             <input
               id="#height"
               name="height"
               onChange={handleFormChange}
             />
-            <label htmlFor="width">Width (CM)</label>
+            <label htmlFor="width">Width (M)</label>
             <input
               id="#width"
               name="width"
               onChange={handleFormChange}
             />
-            <label htmlFor="length">Length (CM)</label>
+            <label htmlFor="length">Length (M)</label>
             <input
               id="#length"
               name="length"
