@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import fetchProducts from '../api';
+import Products from '../components/Products';
 
 const ProductsList = () => {
   const [products, setProducts] = useState();
@@ -12,7 +13,6 @@ const ProductsList = () => {
     };
     requestProucts();
   }, []);
-  console.log(products);
 
   return (
     <>
@@ -22,11 +22,11 @@ const ProductsList = () => {
           <button>
             <Link to="/addproduct">ADD</Link>
           </button>
-          <button>MASS DELETE</button>
+          <button id='#delete-product-btn'>MASS DELETE</button>
         </div>
       </div>
       <hr />
-      PRODUCTS LIST GOES HERE
+      <Products products={products} />
       <hr />
       <span>Scandiweb Test assignment</span>
     </>
