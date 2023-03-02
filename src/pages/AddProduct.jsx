@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AttributesForm from '../components/AttributesForm';
+import genReqBody from '../utils/genReqBody';
 import { initialFormState, validateForm } from '../utils/handleForm';
 
 const AddProducts = () => {
@@ -17,7 +18,8 @@ const AddProducts = () => {
       return alert(error);
     }
     
-    console.log('Form is valid');
+    const reqBody = genReqBody(formData);
+    console.log(reqBody);
   }; 
 
   return (
