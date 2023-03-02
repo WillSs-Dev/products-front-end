@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import fetchProducts from '../api';
+import { fetchProducts } from '../api';
 import Products from '../components/Products';
 
 const ProductsList = () => {
@@ -22,7 +22,7 @@ const ProductsList = () => {
           <button>
             <Link to="/add-product">ADD</Link>
           </button>
-          <button id='#delete-product-btn'>MASS DELETE</button>
+          <button id="#delete-product-btn">MASS DELETE</button>
         </div>
       </div>
       <hr />
