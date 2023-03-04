@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchProducts } from '../api';
+import { fetchProducts, massDeleteProducts } from '../api';
 import Products from '../components/Products';
 
 const ProductsList = () => {
   const [products, setProducts] = useState();
+  const [productsToDelete, setProductsToDelete] = useState([]);
 
   useEffect(() => {
     const requestProucts = async () => {
@@ -14,6 +15,20 @@ const ProductsList = () => {
     requestProucts();
   }, []);
 
+  const handleDelete = (sku) => {
+    const newProductsArr = [...productsToDelete, sku];
+    setProductsToDelete(newProductsArr);
+  };
+
+  const massDelete = async () => {
+    if (!productsToDelete.length) return;
+
+    const { message } = await massDeleteProducts(productsToDelete);
+    if (message) {
+      window.location.reload();
+    }
+  };
+
   return (
     <>
       <div>
@@ -22,11 +37,13 @@ const ProductsList = () => {
           <button>
             <Link to="/add-product">ADD</Link>
           </button>
-          <button id="#delete-product-btn">MASS DELETE</button>
+          <button id="#delete-product-btn" onClick={massDelete}>
+            MASS DELETE
+          </button>
         </div>
       </div>
       <hr />
-      <Products products={products} />
+      <Products products={products} handleDelete={handleDelete} />
       <hr />
       <span>Scandiweb Test assignment</span>
     </>

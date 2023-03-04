@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Products = ({ products }) => {
+const Products = ({ products, handleDelete }) => {
   return (
     <div>
       {products &&
@@ -10,6 +10,7 @@ const Products = ({ products }) => {
               type="checkbox"
               id={product.sku}
               className=".delete-checkbox"
+              onChange={(e) => e.target.checked && handleDelete(product.sku)}
             />
             <h4>SKU: {product.sku}</h4>
             <h3>{product.name}</h3>
