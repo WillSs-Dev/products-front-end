@@ -1,5 +1,7 @@
+const HOST = 'https://php-products-api.up.railway.app/';
+
 const fetchProducts = async () => {
-  return fetch('https://php-products-api.up.railway.app/')
+  return fetch(HOST)
     .then((response) => response.json())
     .then((data) => {
       return data;
@@ -7,7 +9,7 @@ const fetchProducts = async () => {
 };
 
 const addProduct = async (product) => {
-  return fetch('https://php-products-api.up.railway.app/', {
+  return fetch(HOST, {
     method: 'POST',
     Headers: {
       'Access-Control-Allow-Origin': '*',
