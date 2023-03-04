@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchProducts, massDeleteProducts } from '../api';
-import Products from '../components/Products';
-import { formatResponse } from '../utils/handleResponses';
+import { fetchProducts, massDeleteProducts } from '../../api';
+import Products from '../../components/Products';
+import { formatResponse } from '../../utils/handleResponses';
 
 const ProductsList = () => {
   const [products, setProducts] = useState();

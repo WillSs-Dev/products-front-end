@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { addProduct } from '../api';
-import AttributesForm from '../components/AttributesForm';
-import { genReqBody } from '../utils/handleResponses';
-import { initialFormState, validateForm } from '../utils/handleForm';
+import { addProduct } from '../../api';
+import AttributesForm from '../../components/AttributesForm';
+import { genReqBody } from '../../utils/handleResponses';
+import { initialFormState, validateForm } from '../../utils/handleForm';
 
 const AddProducts = () => {
   const [formData, setFormData] = useState(initialFormState);
