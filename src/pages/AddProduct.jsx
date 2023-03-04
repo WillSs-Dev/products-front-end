@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { addProduct } from '../api';
 import AttributesForm from '../components/AttributesForm';
-import genReqBody from '../utils/genReqBody';
+import { genReqBody } from '../utils/handleResponses';
 import { initialFormState, validateForm } from '../utils/handleForm';
 
 const AddProducts = () => {
@@ -20,7 +20,6 @@ const AddProducts = () => {
     if (error) {
       return alert(error);
     }
-    
     const reqBody = genReqBody(formData);
     
     const { message } = await addProduct(reqBody);
