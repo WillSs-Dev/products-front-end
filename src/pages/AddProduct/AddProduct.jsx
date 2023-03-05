@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addProduct } from '../../api';
 import AttributesForm from '../../components/AttributesForm';
 import { genReqBody } from '../../utils/handleResponses';
 import { initialFormState, validateForm } from '../../utils/handleForm';
+import Footer from '../../components/Footer';
 
 const AddProducts = () => {
   const [formData, setFormData] = useState(initialFormState);
@@ -21,51 +22,81 @@ const AddProducts = () => {
       return alert(error);
     }
     const reqBody = genReqBody(formData);
-    
+
     const { message } = await addProduct(reqBody);
-    
+
     if (message !== 'Product created') {
-      return alert(message); 
+      return alert(message);
     }
 
     navigate('/');
-  }; 
+  };
+
+  const cancel = () => {
+    navigate('/');
+  };
 
   return (
     <>
-      <div>
-        <h1>Product Add</h1>
-        <div>
-          <button onClick={handleSubmit}>Save</button>
-          <button>
-            <Link to="/">Cancel</Link>
+      <header className="flex justify-around py-3 items-center border box-shadow-lg bg-slate-100">
+        <h1 className="text-2xl font-semibold text-slate-900">Product Add</h1>
+        <nav className="flex justify-around gap-5">
+          <button
+            className="bg-slate-700 text-white px-2 py-1 hover:bg-slate-900 transition duration-300 ease-in-out"
+            onClick={handleSubmit}
+          >
+            Save
           </button>
-        </div>
-      </div>
-      <hr />
-      <form id="#product_form">
-        <div>
-          <label htmlFor="sku">SKU</label>
-          <input id="#sku" name="sku" onChange={handleFormChange} />
+          <button
+            className="bg-slate-700 text-white px-2 py-1 hover:bg-slate-900 transition duration-300 ease-in-out"
+            onClick={cancel}
+          >
+            Cancel
+          </button>
+        </nav>
+      </header>
 
-          <label htmlFor="name">Name</label>
-          <input
-            id="#name"
-            name="name"
-            onChange={handleFormChange}
-          />
+      <main className="flex justify-center mb-8">
+        <form className="p-2" id="#product_form">
+          <div className="flex flex-col my-2">
+            <label className="font-regular" htmlFor="sku">
+              SKU
+            </label>
+            <input
+              className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="#sku"
+              name="sku"
+              onChange={handleFormChange}
+            />
 
-          <label htmlFor="price">Price ($)</label>
-          <input
-            id="#price"
-            name="price"
-            onChange={handleFormChange}
-          />
-        </div>
-        <AttributesForm handleFormChange={handleFormChange} />
-      </form>
-      <hr />
-      <span>Scandiweb Test assignment</span>
+            <label className="font-regular" htmlFor="name">
+              Name
+            </label>
+            <input
+              className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="#name"
+              name="name"
+              onChange={handleFormChange}
+            />
+
+            <label className="font-regular" htmlFor="price">
+              Price ($)
+            </label>
+            <input
+              className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="#price"
+              name="price"
+              onChange={handleFormChange}
+            />
+          </div>
+
+          <hr />
+
+          <AttributesForm handleFormChange={handleFormChange} />
+        </form>
+      </main>
+
+      <Footer />
     </>
   );
 };
