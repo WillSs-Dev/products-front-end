@@ -2,32 +2,38 @@ import React from 'react';
 
 const Products = ({ products, handleDelete }) => {
   return (
-    <div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-3 gap-5">
       {products &&
         products.map((product) => (
-          <div key={product.sku}>
+          <div
+            key={product.sku}
+            className="relative border p-2 text-slate-900 max-w-xs flex flex-col gap-1 drop-shadow-2xl border rounded-xl hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
+          >
             <input
               type="checkbox"
               id={product.sku}
-              className=".delete-checkbox"
-              onChange={(e) => e.target.checked && handleDelete(product.sku)}
+              className=".delete-checkbox absolute top-2 right-2 w-5 h-5"
+              onChange={(e) => handleDelete(product.sku)}
             />
-            <h4>SKU: {product.sku}</h4>
-            <h3>{product.name}</h3>
 
-            <p>Category: {product.category}</p>
-            <p>Price: {product.price} $</p>
+            <p className="text-sm font-light">SKU: {product.sku}</p>
 
-            {product.size && <p>Size: {product.size}</p>}
-            {product.weight && <p>Weight: {product.weight}</p>}
+            <div className="border border-gray-300 px-1">
+              <h3 className="text-xl font-bold">{product.name}</h3>
+
+              <p className="text-sm font-medium">Category: {product.category}</p>
+              <p className="text-sm font-medium">Price: {product.price} $</p>
+            </div>
+
+            {product.size && <p className='border border-gray-300 px-1 font-medium'>Size: {product.size}</p>}
+            {product.weight && <p className='border border-gray-300 px-1 font-medium'>Weight: {product.weight}</p>}
             {product.category === 'furniture' && (
-              <div>
+              <div className='border border-gray-300 px-1 font-medium'>
                 <p>Height: {product.height}</p>
                 <p>Width: {product.width}</p>
                 <p>Length: {product.length}</p>
               </div>
             )}
-            <hr />
           </div>
         ))}
     </div>

@@ -18,6 +18,12 @@ const ProductsList = () => {
   }, []);
 
   const handleDelete = (sku) => {
+    if (productsToDelete.includes(sku)) {
+      const newProductsArr = productsToDelete.filter(
+        (product) => product !== sku
+      );
+      return setProductsToDelete(newProductsArr);
+    }
     const newProductsArr = [...productsToDelete, sku];
     setProductsToDelete(newProductsArr);
   };
@@ -32,15 +38,16 @@ const ProductsList = () => {
   };
 
   return (
-    <>
-      <div className="flex justify-around py-3 items-center border">
-        <h1 className="text-2xl font-semibold">Product List</h1>
+    <div>
+      <div className="flex justify-around py-3 items-center border box-shadow-lg bg-slate-100">
+        <h1 className="text-2xl font-semibold text-slate-900">Product List</h1>
+
         <div className="flex justify-around gap-5">
-          <button className="bg-gray-500 text-white px-2 py-1">
+          <button className="bg-slate-700 text-white px-2 py-1">
             <Link to="/add-product">ADD</Link>
           </button>
           <button
-            className="bg-gray-500 text-white px-2 py-1"
+            className="bg-slate-700 text-white px-2 py-1"
             id="#delete-product-btn"
             onClick={massDelete}
           >
@@ -48,11 +55,11 @@ const ProductsList = () => {
           </button>
         </div>
       </div>
-      <hr />
+
       <Products products={products} handleDelete={handleDelete} />
       <hr />
       <span>Scandiweb Test assignment</span>
-    </>
+    </div>
   );
 };
 
