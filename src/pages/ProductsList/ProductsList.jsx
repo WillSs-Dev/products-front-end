@@ -33,13 +33,17 @@ const ProductsList = () => {
 
   return (
     <>
-      <div>
-        <h1 className="text-2xl">Product List</h1>
-        <div>
-          <button>
+      <div className="flex justify-around py-3 items-center border">
+        <h1 className="text-2xl font-semibold">Product List</h1>
+        <div className="flex justify-around gap-5">
+          <button className="bg-gray-500 text-white px-2 py-1">
             <Link to="/add-product">ADD</Link>
           </button>
-          <button id="#delete-product-btn" onClick={massDelete}>
+          <button
+            className="bg-gray-500 text-white px-2 py-1"
+            id="#delete-product-btn"
+            onClick={massDelete}
+          >
             MASS DELETE
           </button>
         </div>
