@@ -7,12 +7,12 @@ const Products = ({ products, handleDelete }) => {
         products.map((product) => (
           <div
             key={product.sku}
-            className="relative border p-2 text-slate-900 max-w-xs flex flex-col shadow-sm border rounded-xl hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
+            className="relative border p-2 text-slate-900 max-w-xs flex flex-col shadow-sm border rounded-md hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
           >
             <input
               type="checkbox"
               id={product.sku}
-              className=".delete-checkbox absolute top-2 right-2 w-5 h-5"
+              className=".delete-checkbox absolute top-1 right-1.5 w-5 h-5"
               onChange={(e) => handleDelete(product.sku)}
             />
 
