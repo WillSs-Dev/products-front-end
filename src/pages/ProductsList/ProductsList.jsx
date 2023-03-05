@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchProducts, massDeleteProducts } from '../../api';
+import Footer from '../../components/Footer';
 import Products from '../../components/Products';
 import { formatResponse } from '../../utils/handleResponses';
 
@@ -43,7 +44,7 @@ const ProductsList = () => {
   };
 
   return (
-    <div>
+    <>
       <header className="flex justify-around py-3 items-center border box-shadow-lg bg-slate-100">
         <h1 className="text-2xl font-semibold text-slate-900">Product List</h1>
 
@@ -66,10 +67,8 @@ const ProductsList = () => {
 
       <Products products={products} handleDelete={handleDelete} />
 
-      <footer className="fixed bottom-0 border box-shadow-lg bg-slate-100 w-full flex justify-center py-1 text-sm">
-        <span>Scandiweb Test assignment</span>
-      </footer>
-    </div>
+      <Footer />
+    </>
   );
 };
 

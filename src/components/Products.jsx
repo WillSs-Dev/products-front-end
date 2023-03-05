@@ -7,7 +7,7 @@ const Products = ({ products, handleDelete }) => {
         products.map((product) => (
           <div
             key={product.sku}
-            className="relative border p-2 text-slate-900 max-w-xs flex flex-col gap-1 drop-shadow-2xl border rounded-xl hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
+            className="relative border p-2 text-slate-900 max-w-xs flex flex-col shadow-sm border rounded-xl hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
           >
             <input
               type="checkbox"
