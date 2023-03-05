@@ -2,12 +2,12 @@ import React from 'react';
 
 const Products = ({ products, handleDelete }) => {
   return (
-    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-3 gap-5">
+    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-3 gap-10 m-12">
       {products &&
         products.map((product) => (
           <div
             key={product.sku}
-            className="relative border p-2 text-slate-900 max-w-xs flex flex-col shadow-sm border rounded-md hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
+            className="relative border p-2 scale-110 text-slate-900 max-w-xs flex flex-col shadow-sm border rounded-md hover:bg-gray-100 hover:shadow-lg hover:border-gray-300 transition duration-500 ease-in-out"
           >
             <input
               type="checkbox"

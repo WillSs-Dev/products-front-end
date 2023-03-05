@@ -56,8 +56,8 @@ const AddProducts = () => {
         </nav>
       </header>
 
-      <main className="flex justify-center mb-8">
-        <form className="p-2" id="#product_form">
+      <main className="flex justify-center mt-10">
+        <form className="p-2 scale-125" id="#product_form">
           <div className="flex flex-col my-2">
             <label className="font-regular" htmlFor="sku">
               SKU
