@@ -39,10 +39,10 @@ const ProductsList = () => {
 
   return (
     <div>
-      <div className="flex justify-around py-3 items-center border box-shadow-lg bg-slate-100">
+      <header className="flex justify-around py-3 items-center border box-shadow-lg bg-slate-100">
         <h1 className="text-2xl font-semibold text-slate-900">Product List</h1>
 
-        <div className="flex justify-around gap-5">
+        <nav className="flex justify-around gap-5">
           <button className="bg-slate-700 text-white px-2 py-1">
             <Link to="/add-product">ADD</Link>
           </button>
@@ -53,12 +53,14 @@ const ProductsList = () => {
           >
             MASS DELETE
           </button>
-        </div>
-      </div>
+        </nav>
+      </header>
 
       <Products products={products} handleDelete={handleDelete} />
-      <hr />
-      <span>Scandiweb Test assignment</span>
+
+      <footer className='fixed bottom-0 border box-shadow-lg bg-slate-100 w-full flex justify-center'>
+        <span>Scandiweb Test assignment</span>
+      </footer>
     </div>
   );
 };

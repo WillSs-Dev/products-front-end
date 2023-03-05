@@ -2,7 +2,7 @@ import React from 'react';
 
 const Products = ({ products, handleDelete }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-3 gap-5">
+    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-3 gap-5">
       {products &&
         products.map((product) => (
           <div
@@ -29,14 +29,14 @@ const Products = ({ products, handleDelete }) => {
             {product.weight && <p className='border border-gray-300 px-1 font-medium'>Weight: {product.weight}</p>}
             {product.category === 'furniture' && (
               <div className='border border-gray-300 px-1 font-medium'>
-                <p>Height: {product.height}</p>
-                <p>Width: {product.width}</p>
-                <p>Length: {product.length}</p>
+                <p>Height: {product.height}m</p>
+                <p>Width: {product.width}m</p>
+                <p>Length: {product.length}m</p>
               </div>
             )}
           </div>
         ))}
-    </div>
+    </main>
   );
 };
 
