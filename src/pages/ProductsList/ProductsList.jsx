@@ -50,13 +50,13 @@ const ProductsList = () => {
 
         <nav className="flex justify-around gap-5">
           <button
-            className="bg-slate-700 text-white px-2 py-1"
+            className="bg-slate-700 text-white px-2 py-1 hover:bg-slate-900 transition duration-300 ease-in-out"
             onClick={addProduct}
           >
             ADD
           </button>
           <button
-            className="bg-slate-700 text-white px-2 py-1"
+            className="bg-slate-700 text-white px-2 py-1 hover:bg-slate-900 transition duration-300 ease-in-out"
             id="#delete-product-btn"
             onClick={massDelete}
           >
