@@ -57,14 +57,14 @@ const AddProducts = () => {
       </header>
 
       <main className="flex justify-center mt-10">
-        <form className="p-2 scale-125" id="#product_form">
+        <form className="p-2 scale-125" id="product_form">
           <div className="flex flex-col my-2">
             <label className="font-regular" htmlFor="sku">
               SKU
             </label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#sku"
+              id="sku"
               name="sku"
               onChange={handleFormChange}
             />
@@ -74,7 +74,7 @@ const AddProducts = () => {
             </label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#name"
+              id="name"
               name="name"
               onChange={handleFormChange}
             />
@@ -84,7 +84,7 @@ const AddProducts = () => {
             </label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#price"
+              id="price"
               name="price"
               onChange={handleFormChange}
             />

@@ -12,7 +12,7 @@ const Products = ({ products, handleDelete }) => {
             <input
               type="checkbox"
               id={product.sku}
-              className=".delete-checkbox absolute top-1 right-1.5 w-5 h-5"
+              className="delete-checkbox absolute top-1 right-1.5 w-5 h-5"
               onChange={(e) => handleDelete(product.sku)}
             />
 

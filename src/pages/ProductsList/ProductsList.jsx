@@ -57,7 +57,7 @@ const ProductsList = () => {
           </button>
           <button
             className="bg-slate-700 text-white px-2 py-1 hover:bg-slate-900 transition duration-300 ease-in-out"
-            id="#delete-product-btn"
+            id="delete-product-btn"
             onClick={massDelete}
           >
             MASS DELETE

@@ -16,7 +16,7 @@ const AttributesForm = ({ handleFormChange }) => {
         </label>
         <select
           className="rounded shadow p-1 font-medium focus:outline-none focus:shadow-outline"
-          id="#productType"
+          id="productType"
           name="category"
           onChange={handleTypeChange}
           value={productType}
@@ -34,7 +34,7 @@ const AttributesForm = ({ handleFormChange }) => {
             <label className="text-sm font-light" htmlFor="size">Size (MB)</label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#size"
+              id="size"
               name="attr_value"
               onChange={handleFormChange}
             />
@@ -46,7 +46,7 @@ const AttributesForm = ({ handleFormChange }) => {
             <label className="text-sm font-light" htmlFor="weight">Weight (KG)</label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#weight"
+              id="weight"
               name="attr_value"
               onChange={handleFormChange}
             />
@@ -60,7 +60,7 @@ const AttributesForm = ({ handleFormChange }) => {
             </label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#height"
+              id="height"
               name="height"
               onChange={handleFormChange}
             />
@@ -69,7 +69,7 @@ const AttributesForm = ({ handleFormChange }) => {
             </label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#width"
+              id="width"
               name="width"
               onChange={handleFormChange}
             />
@@ -78,7 +78,7 @@ const AttributesForm = ({ handleFormChange }) => {
             </label>
             <input
               className="shadow border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="#length"
+              id="length"
               name="length"
               onChange={handleFormChange}
             />
